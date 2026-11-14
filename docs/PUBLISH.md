@@ -4,14 +4,14 @@
 
 ## 1. 发布前检查
 
-- [ ] **版权人实名**：打开 `LICENSE`，**第 3 行** `Copyright (c) 2026 FaultTree Mini Contributors`，把 `FaultTree Mini Contributors` 改成你的名字（这是唯一的版权声明位置，README/文档里没有别的版权行需要改）
+- [x] **版权人实名**（已完成：LICENSE 第 3 行为 "Copyright (c) 2026 Peter"）
 - [x] **赞赏渠道**（已定稿并配置完成：微信赞赏码 + PayPal，费率≈0；第三方中转平台如面包多 5.7%~13%、爱发电 6% 均不值得）：
   1. ~~生成微信赞赏码~~（已完成：图片在 `docs/images/wechat-reward.png`，README.md 赞赏区已嵌入）
   2. ~~PayPal 填入~~（已完成：songlike163@hotmail.com，已填入 README.md / README_EN.md / FUNDING.yml）
   3. 国内只保留微信赞赏码一个入口（不使用支付宝收款码）
   4. 如日后担心码暴露：微信「收付款 → 赞赏码 → 赞赏设置」重新生成即可作废旧码，替换 `docs/images/wechat-reward.png` 即可
 - [x] 确认所有内容均为个人业余开发、不含公司涉密信息（已确认）
-- [ ] `node tests/verify-calc.js` 全绿（当前 6/6 通过）
+- [x] `node tests/verify-calc.js` 全绿（6/6 通过）
 
 ## 2. 创建仓库并推送
 
