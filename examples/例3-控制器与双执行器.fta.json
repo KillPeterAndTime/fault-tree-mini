@@ -1,0 +1,21 @@
+{
+  "app": "FaultTreeMini",
+  "version": 1,
+  "name": "例3-控制器与双执行器.fta.json",
+  "nodes": [
+    { "id": "n1", "type": "top", "x": 450, "y": 100, "label": "系统功能丧失", "desc": "来源：公开教学算例。期望结果 P(TOP)=0.0249（控制器为单点失效路径）。", "k": 2, "n": 3, "inputMode": "rate", "rate": 1e-05, "time": 10000, "prob": 1e-04 },
+    { "id": "n2", "type": "or", "x": 450, "y": 250, "label": "控制器失效 或 双执行器失效", "desc": "T = A ∪ (B ∧ C)。", "k": 2, "n": 3, "inputMode": "rate", "rate": 1e-05, "time": 10000, "prob": 1e-04 },
+    { "id": "n3", "type": "basic", "x": 280, "y": 430, "label": "控制器A失效", "desc": "单点失效，p = 0.02", "k": 2, "n": 3, "inputMode": "prob", "rate": 1e-05, "time": 10000, "prob": 0.02 },
+    { "id": "n4", "type": "and", "x": 590, "y": 430, "label": "两台执行器均失效", "desc": "0.10 × 0.05 = 0.005。", "k": 2, "n": 3, "inputMode": "rate", "rate": 1e-05, "time": 10000, "prob": 1e-04 },
+    { "id": "n5", "type": "basic", "x": 490, "y": 590, "label": "执行器B失效", "desc": "p = 0.10", "k": 2, "n": 3, "inputMode": "prob", "rate": 1e-05, "time": 10000, "prob": 0.1 },
+    { "id": "n6", "type": "basic", "x": 690, "y": 590, "label": "执行器C失效", "desc": "p = 0.05", "k": 2, "n": 3, "inputMode": "prob", "rate": 1e-05, "time": 10000, "prob": 0.05 }
+  ],
+  "edges": [
+    { "from": "n1", "to": "n2" },
+    { "from": "n2", "to": "n3" },
+    { "from": "n2", "to": "n4" },
+    { "from": "n4", "to": "n5" },
+    { "from": "n4", "to": "n6" }
+  ],
+  "nextId": 7
+}

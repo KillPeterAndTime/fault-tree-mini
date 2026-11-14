@@ -1,0 +1,14 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Node (仅测试脚本使用，无 node_modules)
+node_modules/
+package-lock.json
+
+# 临时/导出文件
+*.tmp
+~$*
+benchmarks/*.xml

@@ -1,0 +1,17 @@
+{
+  "app": "FaultTreeMini",
+  "version": 1,
+  "name": "例1-双泵冗余系统.fta.json",
+  "nodes": [
+    { "id": "n1", "type": "top", "x": 400, "y": 100, "label": "双冗余泵同时失效", "desc": "来源：NUREG-0492 风格经典算例。两台独立冗余泵，任一台可用即满足需求，均失效才丧失功能。", "k": 2, "n": 3, "inputMode": "rate", "rate": 1e-05, "time": 10000, "prob": 1e-04 },
+    { "id": "n2", "type": "and", "x": 400, "y": 240, "label": "泵A与泵B均失效", "desc": "唯一最小割集 {PA, PB}（二阶）。", "k": 2, "n": 3, "inputMode": "rate", "rate": 1e-05, "time": 10000, "prob": 1e-04 },
+    { "id": "n3", "type": "basic", "x": 290, "y": 400, "label": "泵A失效", "desc": "任务时间内失效概率 0.01。", "k": 2, "n": 3, "inputMode": "prob", "rate": 1e-05, "time": 10000, "prob": 0.01 },
+    { "id": "n4", "type": "basic", "x": 510, "y": 400, "label": "泵B失效", "desc": "任务时间内失效概率 0.01。", "k": 2, "n": 3, "inputMode": "prob", "rate": 1e-05, "time": 10000, "prob": 0.01 }
+  ],
+  "edges": [
+    { "from": "n1", "to": "n2" },
+    { "from": "n2", "to": "n3" },
+    { "from": "n2", "to": "n4" }
+  ],
+  "nextId": 5
+}

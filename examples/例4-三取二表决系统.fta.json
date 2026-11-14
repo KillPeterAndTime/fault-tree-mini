@@ -1,0 +1,19 @@
+{
+  "app": "FaultTreeMini",
+  "version": 1,
+  "name": "例4-三取二表决系统.fta.json",
+  "nodes": [
+    { "id": "n1", "type": "top", "x": 450, "y": 100, "label": "2/3 表决输出错误", "desc": "经典 2oo3 表决算例。三个独立通道各 p=0.1，至少 2 个失效则输出错误。期望结果 P(TOP)=0.028。", "k": 2, "n": 3, "inputMode": "rate", "rate": 1e-05, "time": 10000, "prob": 1e-04 },
+    { "id": "n2", "type": "vote", "x": 450, "y": 250, "label": "表决门 2/3", "desc": "P = Σ C(3,i)·p^i·(1-p)^(3-i), i≥2 = 0.027 + 0.001 = 0.028。", "k": 2, "n": 3, "inputMode": "rate", "rate": 1e-05, "time": 10000, "prob": 1e-04 },
+    { "id": "n3", "type": "basic", "x": 260, "y": 430, "label": "通道1失效", "desc": "p = 0.1", "k": 2, "n": 3, "inputMode": "prob", "rate": 1e-05, "time": 10000, "prob": 0.1 },
+    { "id": "n4", "type": "basic", "x": 450, "y": 430, "label": "通道2失效", "desc": "p = 0.1", "k": 2, "n": 3, "inputMode": "prob", "rate": 1e-05, "time": 10000, "prob": 0.1 },
+    { "id": "n5", "type": "basic", "x": 640, "y": 430, "label": "通道3失效", "desc": "p = 0.1", "k": 2, "n": 3, "inputMode": "prob", "rate": 1e-05, "time": 10000, "prob": 0.1 }
+  ],
+  "edges": [
+    { "from": "n1", "to": "n2" },
+    { "from": "n2", "to": "n3" },
+    { "from": "n2", "to": "n4" },
+    { "from": "n2", "to": "n5" }
+  ],
+  "nextId": 6
+}

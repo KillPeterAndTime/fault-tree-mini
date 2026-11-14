@@ -1,0 +1,25 @@
+{
+  "app": "FaultTreeMini",
+  "version": 1,
+  "name": "例2-生产线计划外停机.fta.json",
+  "nodes": [
+    { "id": "n1", "type": "top", "x": 450, "y": 90, "label": "生产线计划外停机", "desc": "来源：CSSBB 公开教程算例。期望结果 P(TOP)=0.01495。", "k": 2, "n": 3, "inputMode": "rate", "rate": 1e-05, "time": 10000, "prob": 1e-04 },
+    { "id": "n2", "type": "or", "x": 450, "y": 230, "label": "任一分支发生", "desc": "泵失效分支或控制失效分支。", "k": 2, "n": 3, "inputMode": "rate", "rate": 1e-05, "time": 10000, "prob": 1e-04 },
+    { "id": "n3", "type": "and", "x": 300, "y": 380, "label": "主泵与备泵同时失效", "desc": "冗余分支：0.02 × 0.05 = 0.001。", "k": 2, "n": 3, "inputMode": "rate", "rate": 1e-05, "time": 10000, "prob": 1e-04 },
+    { "id": "n4", "type": "or", "x": 610, "y": 380, "label": "控制系统任一失效", "desc": "非冗余分支：1-(0.99)(0.996)=0.01396。", "k": 2, "n": 3, "inputMode": "rate", "rate": 1e-05, "time": 10000, "prob": 1e-04 },
+    { "id": "n5", "type": "basic", "x": 190, "y": 540, "label": "主泵失效", "desc": "p = 0.02", "k": 2, "n": 3, "inputMode": "prob", "rate": 1e-05, "time": 10000, "prob": 0.02 },
+    { "id": "n6", "type": "basic", "x": 410, "y": 540, "label": "备用泵失效", "desc": "p = 0.05", "k": 2, "n": 3, "inputMode": "prob", "rate": 1e-05, "time": 10000, "prob": 0.05 },
+    { "id": "n7", "type": "basic", "x": 520, "y": 540, "label": "传感器失效", "desc": "p = 0.01", "k": 2, "n": 3, "inputMode": "prob", "rate": 1e-05, "time": 10000, "prob": 0.01 },
+    { "id": "n8", "type": "basic", "x": 710, "y": 540, "label": "PLC 失效", "desc": "p = 0.004", "k": 2, "n": 3, "inputMode": "prob", "rate": 1e-05, "time": 10000, "prob": 0.004 }
+  ],
+  "edges": [
+    { "from": "n1", "to": "n2" },
+    { "from": "n2", "to": "n3" },
+    { "from": "n2", "to": "n4" },
+    { "from": "n3", "to": "n5" },
+    { "from": "n3", "to": "n6" },
+    { "from": "n4", "to": "n7" },
+    { "from": "n4", "to": "n8" }
+  ],
+  "nextId": 9
+}
